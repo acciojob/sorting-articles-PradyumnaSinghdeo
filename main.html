@@ -30,38 +30,23 @@
     <ul id="band"></ul>
 
     <script>
-        const bands = [
-            'The Plot in You',
-            'The Devil Wears Prada',
-            'Pierce the Veil',
-            'Norma Jean',
-            'The Bled',
-            'Say Anything',
-            'The Midway State',
-            'We Came as Romans',
-            'Counterparts',
-            'Oh, Sleeper',
-            'A Skylit Drive',
-            'Anywhere But Here',
-            'An Old Dog'
+          const bands = [
+            'The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 
+            'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 
+            'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'
         ];
 
-        // Function to strip articles (a, an, the) from the start of the string
-        function stripArticle(bandName) {
-            return bandName.replace(/^(a |an |the )/i, '').trim();
+        function strip(article) {
+            return article.replace(/^(a |an |the )/i, '').trim();
         }
 
-        // Sort the bands array without considering the articles
-        const sortedBands = bands.sort((a, b) => stripArticle(a).localeCompare(stripArticle(b)));
+        const sortedBands = bands.sort((a, b) => strip(a).localeCompare(strip(b)));
 
-        // Select the ul element with id 'band'
-        const bandList = document.getElementById('band');
-
-        // Append sorted bands to the ul as li elements
+        const ul = document.getElementById('band');
         sortedBands.forEach(band => {
             const li = document.createElement('li');
             li.textContent = band;
-            bandList.appendChild(li);
+            ul.appendChild(li);
         });
     </script>
 </body>
